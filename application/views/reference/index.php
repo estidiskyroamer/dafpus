@@ -67,7 +67,7 @@
             <div id="content" class="container">
                 <table class="table" id="table-reference">
                     <thead>
-                        <tr><th>Referensi</th><th>Jenis</th><th>Grup</th><th>Aksi</th></tr>
+                        <tr><th width = '70%'>Referensi</th><th>Jenis</th><th>Grup</th><th>Aksi</th></tr>
                     </thead>
                     <tbody></tbody>
                 </table>
@@ -91,6 +91,7 @@
     <script>
         $(document).ready(function(){
             get_reference();
+            $('#new_group').val($('#group_id').val());
         })
 
         var fields;
@@ -120,7 +121,7 @@
                 content     : fieldData,
                 user        : 'steady'
             }
-
+            $(this).trigger('reset');
             $.post('<?php echo base_url(); ?>reference/addReference', formData, function(data) {
                 get_reference();
                 form_new_reference();
@@ -256,6 +257,7 @@
 
         function gen_bibliography(res) {
             var result = JSON.parse(res);
+            $('#bibliography .card-text').html('');
             $.each(result.bib, function(i, obj) {
                 $('#bibliography .card-text').append('<p>'+obj+'</p>');
             })
