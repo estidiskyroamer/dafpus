@@ -32,6 +32,7 @@ class Bibliography extends CI_Controller {
                     }
                     $temp = str_replace("{".$i."}", $c, $temp);
                 }
+                $temp = $this->cleanup($temp);
                 array_push($bib, $temp);
             }
             sort($bib);
@@ -74,5 +75,10 @@ class Bibliography extends CI_Controller {
         }
         $temp_penulis = substr($temp_penulis, 0, -1);
         return $temp_penulis;
+    }
+
+    function cleanup($content){
+        $temp = str_replace(". .", ".", $content);
+        return $temp;
     }
 }
