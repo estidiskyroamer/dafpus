@@ -3,6 +3,7 @@
         <title>Dafpus - Generator Daftar Pustaka</title>
         <script type="text/javascript" src="<?php echo base_url(); ?>public/jquery/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>public/bootstrap-5.0.1/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>public/clipboard/clipboard.min.js"></script>
         <link rel="stylesheet" href="<?php echo base_url(); ?>public/bootstrap-5.0.1/css/bootstrap.min.css">
     </head>
     <body>

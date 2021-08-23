@@ -76,8 +76,8 @@
                 <div class="card">
                     <div class="card-body">
                         <small id="bib-style" class="text-muted"></small>
-                        <h3 class="card-title">Daftar Pustaka</h3>
-                        <div class="card-text"></div>
+                        <h3 class="card-title">Daftar Pustaka</h3><div class="float-right"><button class="btn btn-sm btn-primary" id="btn_copy" data-clipboard-target="#daftar_isi">Copy</button></div>
+                        <div class="card-text" id="daftar_isi"></div>
                     </div>
                 </div>
             </div>
@@ -93,6 +93,8 @@
             get_reference();
             $('#new_group').val($('#group_id').val());
         })
+
+        new ClipboardJS('#btn_copy');
 
         var fields;
 

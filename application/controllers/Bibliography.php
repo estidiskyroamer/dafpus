@@ -30,6 +30,10 @@ class Bibliography extends CI_Controller {
                         $content_format = str_replace('_italic', '', $content_format);
                         $temp = str_replace("{".$i."_italic}", "<i>".$c."</i>", $temp);
                     }
+                    if(strpos($content_format, $i.'_bold') !== false) {
+                        $content_format = str_replace('_bold', '', $content_format);
+                        $temp = str_replace("{".$i."_bold}", "<strong>".$c."</strong>", $temp);
+                    }
                     $temp = str_replace("{".$i."}", $c, $temp);
                 }
                 $temp = $this->cleanup($temp);
@@ -60,10 +64,10 @@ class Bibliography extends CI_Controller {
                 $penulis = $penulis_arr[$last_key].', '.$temp_depan_penulis;
 
                 if($i == count($penulis_array)-2) {
-                    $temp_penulis.= $penulis.' & ';
+                    $temp_penulis.= $penulis.' and '; //last author
                 }
                 else if($i < count($penulis_array)-1) {
-                    $temp_penulis.= $penulis.', ';
+                    $temp_penulis.= $penulis.', '; //2nd, 3rd, etc. author
                 }
                 else{
                     $temp_penulis.= $penulis;
@@ -79,6 +83,7 @@ class Bibliography extends CI_Controller {
 
     function cleanup($content){
         $temp = str_replace(". .", ".", $content);
+        $temp = str_replace(": .", ".", $temp);
         return $temp;
     }
 }
